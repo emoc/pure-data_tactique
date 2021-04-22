@@ -1,0 +1,210 @@
+#N canvas 42 53 1458 795 10;
+#X obj 177 96 bng 30 250 50 0 empty empty empty 17 7 0 10 -262130 -1
+-1;
+#X obj 202 141 f 1;
+#X obj 202 163 sel 1 2 3;
+#X obj 34 208 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 34 230 random 100;
+#X obj 34 252 moses 30;
+#X obj 34 274 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 34 294 1;
+#X obj 34 346 s state;
+#X obj 115 252 moses 60;
+#X obj 115 274 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 115 294 2;
+#X obj 168 274 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 168 294 3;
+#X obj 234 208 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 234 230 random 100;
+#X obj 234 274 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 234 294 1;
+#X obj 234 346 s state;
+#X obj 315 252 moses 60;
+#X obj 315 274 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 315 294 2;
+#X obj 368 274 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 368 294 3;
+#X obj 234 252 moses 10;
+#X obj 424 208 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 424 230 random 100;
+#X obj 424 274 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 424 294 1;
+#X obj 424 346 s state;
+#X obj 505 274 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 505 294 2;
+#X obj 558 274 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 558 294 3;
+#X obj 424 252 moses 70;
+#X obj 505 252 moses 80;
+#X msg 319 97 \; state 1;
+#X text 316 79 reset;
+#X obj 220 99 r state;
+#X floatatom 233 124 5 0 0 0 - - -, f 5;
+#X text 603 250 70% de chances pour 1;
+#X text 603 270 10% de chances pour 2;
+#X text 603 290 20% de chances pour 3;
+#X text 602 230 Si l'etat precedent etait 3 :;
+#X obj 177 33 tgl 30 0 empty empty empty 17 7 0 10 -257985 -1 -1 1
+1;
+#X obj 177 72 metro 300;
+#X obj 896 553 noteout 1;
+#X obj 1032 76 vradio 15 1 1 7 empty empty octave 0 -8 0 10 -257985
+-1 -1 0;
+#X floatatom 1032 212 5 0 0 0 - - -, f 5;
+#X obj 1032 233 * 12;
+#X obj 1032 188 - 3;
+#X obj 1004 30 loadbang;
+#X obj 896 272 +;
+#X obj 908 298 s \$0-NOTE;
+#X obj 896 188 * 2;
+#X obj 896 213 + 70;
+#X obj 900 716 ctlout 123 1;
+#X msg 900 691 0;
+#X obj 900 668 bng 15 250 50 0 empty empty ALL_NOTES_OFF 17 7 0 10
+-258113 -1 -1;
+#X msg 1020 691 0;
+#X obj 1020 668 bng 15 250 50 0 empty empty ALL_SOUNDS_OFF 17 7 0 10
+-258113 -1 -1;
+#X obj 1020 716 ctlout 120 1;
+#X msg 1004 55 3, f 1;
+#X obj 896 103 r state;
+#X obj 210 546 nbx 2 40 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 32
+-204800 -1 -1 40 256;
+#X floatatom 210 675 5 0 0 2 _note - -, f 5;
+#X floatatom 298 697 5 0 0 0 index - -, f 5;
+#X obj 210 520 r \$0-NOTE;
+#X obj 275 644 f;
+#X obj 309 644 + 1;
+#X obj 275 670 mod 100;
+#X obj 210 721 tabwrite \$0-pianoroll;
+#X obj 210 594 t f b;
+#X obj 293 442 loadbang;
+#X msg 293 588 0;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array \$0-pianoroll 100 float 2;
+#X coords 0 128 100 0 400 256 1 0 0;
+#X restore 380 482 graph;
+#X obj 1229 384 loadbang;
+#X obj 1228 324 table \$0-duree 5;
+#X obj 1229 407 f \$0;
+#X msg 1229 430 \; \$1-duree 0 1 2 4 2 1;
+#X obj 1033 358 random 5;
+#X obj 1043 464 nbx 5 14 -1e+37 1e+37 0 0 empty empty duree 65 8 0
+12 -204800 -1 -1 750 256;
+#X obj 1033 383 tabread \$0-duree;
+#X obj 237 44 r \$0-metro;
+#X obj 896 320 t f b b;
+#X obj 896 519 makenote;
+#X obj 935 463 nbx 3 14 -1e+37 1e+37 0 0 empty empty vel 50 8 0 12
+-204800 -1 -1 87 256;
+#X obj 922 383 random 63;
+#X obj 922 409 + 64;
+#X obj 1193 385 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1091 439 s \$0-metro;
+#X obj 1033 407 * 250;
+#X obj 1033 439 * 0.75;
+#X text 417 25 D'apres l'exemple de chaines de Markov fourni avec pure
+data;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 1 14 0;
+#X connect 2 2 25 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 1 9 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 9 0 10 0;
+#X connect 9 1 12 0;
+#X connect 10 0 11 0;
+#X connect 11 0 8 0;
+#X connect 12 0 13 0;
+#X connect 13 0 8 0;
+#X connect 14 0 15 0;
+#X connect 15 0 24 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 19 0 20 0;
+#X connect 19 1 22 0;
+#X connect 20 0 21 0;
+#X connect 21 0 18 0;
+#X connect 22 0 23 0;
+#X connect 23 0 18 0;
+#X connect 24 0 16 0;
+#X connect 24 1 19 0;
+#X connect 25 0 26 0;
+#X connect 26 0 34 0;
+#X connect 27 0 28 0;
+#X connect 28 0 29 0;
+#X connect 30 0 31 0;
+#X connect 31 0 29 0;
+#X connect 32 0 33 0;
+#X connect 33 0 29 0;
+#X connect 34 0 27 0;
+#X connect 34 1 35 0;
+#X connect 35 0 30 0;
+#X connect 35 1 32 0;
+#X connect 38 0 39 0;
+#X connect 38 0 1 1;
+#X connect 44 0 45 0;
+#X connect 45 0 0 0;
+#X connect 47 0 50 0;
+#X connect 48 0 49 0;
+#X connect 49 0 52 1;
+#X connect 50 0 48 0;
+#X connect 51 0 62 0;
+#X connect 52 0 53 0;
+#X connect 52 0 84 0;
+#X connect 54 0 55 0;
+#X connect 55 0 52 0;
+#X connect 57 0 56 0;
+#X connect 58 0 57 0;
+#X connect 59 0 61 0;
+#X connect 60 0 59 0;
+#X connect 62 0 47 0;
+#X connect 63 0 54 0;
+#X connect 64 0 72 0;
+#X connect 65 0 71 0;
+#X connect 66 0 71 1;
+#X connect 67 0 64 0;
+#X connect 68 0 69 0;
+#X connect 68 0 70 0;
+#X connect 69 0 68 1;
+#X connect 70 0 66 0;
+#X connect 72 0 65 0;
+#X connect 72 1 68 0;
+#X connect 73 0 74 0;
+#X connect 74 0 68 1;
+#X connect 76 0 78 0;
+#X connect 78 0 79 0;
+#X connect 80 0 82 0;
+#X connect 82 0 91 0;
+#X connect 83 0 45 1;
+#X connect 84 0 85 0;
+#X connect 84 1 87 0;
+#X connect 84 2 80 0;
+#X connect 85 0 46 0;
+#X connect 85 1 46 1;
+#X connect 87 0 88 0;
+#X connect 88 0 86 0;
+#X connect 88 0 85 1;
+#X connect 89 0 78 0;
+#X connect 91 0 90 0;
+#X connect 91 0 92 0;
+#X connect 92 0 85 2;
+#X connect 92 0 81 0;

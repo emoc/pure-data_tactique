@@ -1,0 +1,103 @@
+#N canvas 135 121 1228 760 10;
+#X obj 272 31 loadbang;
+#X obj 96 178 metro;
+#X obj 96 434 makenote;
+#X floatatom 128 151 0 0 0 0 - - -;
+#X floatatom 272 276 0 0 0 0 - - -;
+#X floatatom 338 277 0 0 0 0 - - -;
+#X msg 128 84 500;
+#X msg 272 69 64;
+#X text 300 276 vel;
+#X obj 96 29 tgl 30 0 empty empty empty 17 7 0 10 -257985 -1 -1 0 1
+;
+#X obj 96 218 random 48;
+#X obj 96 245 + 48;
+#X text 401 276 duree;
+#X text 190 153 vitesse;
+#X obj 338 249 / 2;
+#X obj 141 115 hsl 60 15 20 1000 0 0 empty empty empty -2 -8 0 10 -257985
+-1 -1 0 1;
+#X obj 132 275 nbx 2 40 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 32
+-257985 -1 -1 70 256;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array \$0-notes 128 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 59 43 68 56 40 55 53 42 56 59 58
+53 35 53 37 61 61 50 48 48 54 50 47 46 47 41 48 54 45 50 45 56 41 60
+56 37 57 48 55 62 60 49 45 44 49 44 48 68 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 300 128 0 512 300 1 0 0;
+#X restore 591 386 graph;
+#X floatatom 453 624 5 0 0 0 valeur - -, f 5;
+#X obj 453 648 + 1;
+#X obj 453 575 t f f;
+#X floatatom 523 624 5 0 0 0 index - -, f 5;
+#X obj 453 597 tabread \$0-notes;
+#X obj 453 670 tabwrite \$0-notes;
+#X text 587 341 Visualisation de la distribution des notes aléatoires
+;
+#X text 834 691 taille_128_xrange_0_128_yrange_300_0;
+#X obj 109 343 s \$0-NOTE;
+#X obj 453 530 nbx 2 40 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 32
+-257985 -1 -1 70 256;
+#X obj 453 501 r \$0-NOTE;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array \$0-pianoroll 100 float 3;
+#A 0 82 92 79 53 83 66 69 76 88 60 85 57 82 86 73 88 56 53 58 70 56
+86 95 63 53 86 78 56 65 49 74 74 87 57 81 94 63 69 79 58 53 57 72 70
+68 53 57 66 62 53 59 68 74 81 90 61 60 64 68 71 67 57 52 63 53 67 80
+85 86 85 64 73 73 51 63 90 55 80 79 87 77 93 94 48 52 83 95 66 63 90
+67 87 62 87 71 66 95 48 72 95;
+#X coords 0 128 100 0 400 256 1 0 0;
+#X restore 704 57 graph;
+#X obj 532 121 nbx 2 40 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 32
+-257985 -1 -1 70 256;
+#X floatatom 532 250 5 0 0 0 valeur - -, f 5;
+#X floatatom 620 272 5 0 0 0 index - -, f 5;
+#X obj 532 95 r \$0-NOTE;
+#X obj 597 219 f;
+#X obj 631 219 + 1;
+#X obj 597 245 mod 100;
+#X obj 532 296 tabwrite \$0-pianoroll;
+#X obj 532 169 t f b;
+#X obj 628 17 loadbang;
+#X msg 628 163 0;
+#X obj 96 460 noteout 1;
+#X connect 0 0 6 0;
+#X connect 0 0 7 0;
+#X connect 1 0 10 0;
+#X connect 2 0 41 0;
+#X connect 2 1 41 1;
+#X connect 3 0 1 1;
+#X connect 3 0 14 0;
+#X connect 4 0 2 1;
+#X connect 5 0 2 2;
+#X connect 6 0 3 0;
+#X connect 7 0 4 0;
+#X connect 9 0 1 0;
+#X connect 10 0 11 0;
+#X connect 11 0 2 0;
+#X connect 11 0 16 0;
+#X connect 11 0 26 0;
+#X connect 14 0 5 0;
+#X connect 15 0 3 0;
+#X connect 18 0 19 0;
+#X connect 19 0 23 0;
+#X connect 20 0 22 0;
+#X connect 20 1 21 0;
+#X connect 21 0 23 1;
+#X connect 22 0 18 0;
+#X connect 27 0 20 0;
+#X connect 28 0 27 0;
+#X connect 30 0 38 0;
+#X connect 31 0 37 0;
+#X connect 32 0 37 1;
+#X connect 33 0 30 0;
+#X connect 34 0 35 0;
+#X connect 34 0 36 0;
+#X connect 35 0 34 1;
+#X connect 36 0 32 0;
+#X connect 38 0 31 0;
+#X connect 38 1 34 0;
+#X connect 39 0 40 0;
+#X connect 40 0 34 0;

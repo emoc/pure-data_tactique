@@ -1,0 +1,214 @@
+#N canvas 41 211 1445 685 10;
+#X text 17 39 https://forum.pdpatchrepo.info/topic/5188/euclidean-rhythms/7#
+, f 65;
+#X obj 194 397 nbx 3 14 -1e+37 1e+37 0 0 empty empty OFFSET 0 -8 0
+12 -257985 -1 -1 0 256;
+#X obj 56 397 nbx 3 14 -1e+37 1e+37 0 0 empty empty LONGUEUR 0 -8 0
+12 -257985 -1 -1 16 256;
+#X obj 123 397 nbx 3 14 -1e+37 1e+37 0 0 empty empty HITS 0 -8 0 12
+-257985 -1 -1 6 256;
+#X obj 34 304 bng 30 250 50 0 empty empty empty 17 7 0 10 -257985 -1
+-1;
+#X obj 34 347 f;
+#X obj 62 347 + 1;
+#X obj 34 236 tgl 30 1 empty empty empty 17 7 0 10 -257985 -1 -1 0
+1;
+#X obj 34 278 metro 200;
+#X obj 34 545 makenote 100 250;
+#X floatatom 34 524 5 0 0 0 - - -, f 5;
+#X msg 46 495 44;
+#X obj 96 485 bng 30 100 50 0 empty empty HIT_OK 0 40 0 10 -4034 -1
+-1;
+#X obj 326 304 bng 30 250 50 0 empty empty empty 17 7 0 10 -257985
+-1 -1;
+#X obj 326 347 f;
+#X obj 354 347 + 1;
+#X obj 326 236 tgl 30 1 empty empty empty 17 7 0 10 -257985 -1 -1 0
+1;
+#X obj 326 278 metro 200;
+#X obj 326 545 makenote 100 250;
+#X obj 326 578 noteout 10;
+#X floatatom 326 524 5 0 0 0 - - -, f 5;
+#X msg 338 495 44;
+#X obj 461 527 bng 30 100 50 0 empty empty HIT_OK 0 40 0 10 -4034 -1
+-1;
+#X obj 461 394 mod 8;
+#X floatatom 461 429 4 0 0 2 PAS - -, f 4;
+#X obj 461 451 sel 0;
+#X obj 461 474 bng 30 100 50 0 empty empty ZERO 0 40 0 10 -204786 -1
+-1;
+#X obj 326 446 abs_euclid 8 1 0;
+#X obj 628 211 bng 30 250 50 0 empty empty empty 17 7 0 10 -257985
+-1 -1;
+#X obj 628 254 f;
+#X obj 656 254 + 1;
+#X obj 628 143 tgl 30 1 empty empty empty 17 7 0 10 -257985 -1 -1 1
+1;
+#X obj 628 185 metro 200;
+#X msg 656 315 35;
+#X msg 647 441 38;
+#X msg 628 564 42;
+#X obj 656 342 makenote 100 250;
+#X obj 656 369 noteout 10;
+#X obj 647 466 makenote 100 250;
+#X obj 647 493 noteout 10;
+#X obj 628 590 makenote 100 250;
+#X obj 628 617 noteout 10;
+#X obj 796 333 bng 30 100 50 0 empty empty HIT_OK 0 40 0 10 -4034 -1
+-1;
+#X obj 797 449 bng 30 100 50 0 empty empty HIT_OK 0 40 0 10 -4034 -1
+-1;
+#X obj 798 571 bng 30 100 50 0 empty empty HIT_OK 0 40 0 10 -4034 -1
+-1;
+#X text 16 10 Rythmes euclidiens;
+#X text 16 24 D'apres l'algorithme propose par Stutter dans la discussion
+;
+#X text 16 71 voir http://cgm.cs.mcgill.ca/~godfried/publications/banff.pdf
+, f 62;
+#X text 16 114 inlet 1 : nombre a tester;
+#X text 16 130 inlet 2 : longueur de la mesure;
+#X text 16 147 inlet 3 : nombre de coups;
+#X text 16 165 inlet 4 : décalage (offset);
+#X obj 34 446 abs_euclid;
+#X obj 656 289 abs_euclid 16 2 0;
+#X obj 647 417 abs_euclid 16 2 4;
+#X obj 628 540 abs_euclid 16 8 0;
+#X obj 928 45 cnv 15 450 600 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 1077 444 select 1;
+#X obj 1005 483 bng 30 100 50 0 empty empty HIT_OK 0 40 0 10 -4034
+-1 -1;
+#X obj 1077 304 mod;
+#X obj 1077 187 bng 30 250 50 0 empty empty empty 17 7 0 10 -257985
+-1 -1;
+#X obj 1077 280 f;
+#X obj 1105 280 + 1;
+#X obj 1077 229 t b b b b;
+#X obj 1077 565 makenote 100 250;
+#X obj 1077 598 noteout 10;
+#X msg 1089 515 45;
+#X floatatom 1077 544 5 0 0 0 - - -, f 5;
+#X obj 1077 119 tgl 30 1 empty empty empty 17 7 0 10 -257985 -1 -1
+0 1;
+#X obj 1077 161 metro 200;
+#X obj 1077 344 +;
+#X obj 1077 370 *;
+#X obj 1077 395 %;
+#X obj 1077 420 <;
+#X floatatom 984 305 4 0 0 0 - - -, f 4;
+#X floatatom 969 438 4 0 0 2 PAS - -, f 4;
+#X obj 1300 305 nbx 3 14 -1e+37 1e+37 0 0 empty empty OFFSET 0 -8 0
+12 -257985 -1 -1 0 256;
+#X obj 1160 305 nbx 3 14 -1e+37 1e+37 0 0 empty empty LONGUEUR 0 -8
+0 12 -257985 -1 -1 0 256;
+#X obj 1229 305 nbx 3 14 -1e+37 1e+37 0 0 empty empty HITS 0 -8 0 12
+-257985 -1 -1 0 256;
+#X msg 986 249 0, f 1;
+#X obj 986 226 bng 15 250 50 0 empty empty empty 17 7 0 10 -257985
+-1 -1;
+#X obj 969 460 sel 0;
+#X obj 969 483 bng 30 250 50 0 empty empty ZERO 0 40 0 10 -204786 -1
+-1;
+#X text 943 68 Fonctionnement de l'abstraction;
+#X obj 34 578 noteout 1;
+#X obj 490 152 t b f;
+#X floatatom 490 221 5 0 0 0 - - -, f 5;
+#X msg 490 175 15000;
+#X obj 490 197 /;
+#X obj 490 120 nbx 3 24 -1e+37 1e+37 0 1 empty empty BPM 0 -12 0 24
+-257985 -1 -1 80 256;
+#X obj 490 243 s \$0-DUREE;
+#X obj 688 141 r \$0-DUREE;
+#X connect 1 0 52 3;
+#X connect 2 0 52 1;
+#X connect 3 0 52 2;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 0 52 0;
+#X connect 6 0 5 1;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 9 0 84 0;
+#X connect 9 1 84 1;
+#X connect 10 0 9 0;
+#X connect 11 0 10 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 14 0 23 0;
+#X connect 14 0 27 0;
+#X connect 15 0 14 1;
+#X connect 16 0 17 0;
+#X connect 17 0 13 0;
+#X connect 18 0 19 0;
+#X connect 18 1 19 1;
+#X connect 20 0 18 0;
+#X connect 21 0 20 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 27 0 20 0;
+#X connect 27 0 22 0;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 29 0 53 0;
+#X connect 29 0 54 0;
+#X connect 29 0 55 0;
+#X connect 30 0 29 1;
+#X connect 31 0 32 0;
+#X connect 32 0 28 0;
+#X connect 33 0 36 0;
+#X connect 34 0 38 0;
+#X connect 35 0 40 0;
+#X connect 36 0 37 0;
+#X connect 36 1 37 1;
+#X connect 38 0 39 0;
+#X connect 38 1 39 1;
+#X connect 40 0 41 0;
+#X connect 40 1 41 1;
+#X connect 52 0 10 0;
+#X connect 52 0 12 0;
+#X connect 53 0 33 0;
+#X connect 53 0 42 0;
+#X connect 54 0 34 0;
+#X connect 54 0 43 0;
+#X connect 55 0 35 0;
+#X connect 55 0 44 0;
+#X connect 57 0 58 0;
+#X connect 57 0 67 0;
+#X connect 59 0 70 0;
+#X connect 59 0 75 0;
+#X connect 60 0 63 0;
+#X connect 61 0 62 0;
+#X connect 61 0 59 0;
+#X connect 61 0 74 0;
+#X connect 62 0 61 1;
+#X connect 63 0 61 0;
+#X connect 63 1 76 0;
+#X connect 63 2 77 0;
+#X connect 63 3 78 0;
+#X connect 64 0 65 0;
+#X connect 64 1 65 1;
+#X connect 66 0 67 0;
+#X connect 67 0 64 0;
+#X connect 68 0 69 0;
+#X connect 69 0 60 0;
+#X connect 70 0 71 0;
+#X connect 71 0 72 0;
+#X connect 72 0 73 0;
+#X connect 73 0 57 0;
+#X connect 75 0 81 0;
+#X connect 76 0 70 1;
+#X connect 77 0 72 1;
+#X connect 77 0 59 1;
+#X connect 78 0 73 1;
+#X connect 78 0 71 1;
+#X connect 79 0 61 0;
+#X connect 80 0 79 0;
+#X connect 81 0 82 0;
+#X connect 85 0 87 0;
+#X connect 85 1 88 1;
+#X connect 86 0 90 0;
+#X connect 87 0 88 0;
+#X connect 88 0 86 0;
+#X connect 89 0 85 0;
+#X connect 91 0 32 1;
